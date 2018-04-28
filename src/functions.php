@@ -8,6 +8,8 @@
 require_once 'modules/is-debug.php';
 require_once 'modules/class-collapsible-walker-nav-menu.php';
 
+require_once 'modules/sidenav.php';
+
 /*------------------------------------*\
     External Modules/Files
 \*------------------------------------*/
