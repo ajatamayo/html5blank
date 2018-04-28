@@ -10,3 +10,14 @@
   margin: 0 auto;
   position: relative;
 }
+
+
+.wrapper {
+  padding-left: (300 + $margin-horizontal-large);
+}
+
+@media only screen and (max-width: 992px) {
+  .wrapper {
+    padding-left: $margin-horizontal-large;
+  }
+}

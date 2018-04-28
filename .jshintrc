@@ -14,5 +14,9 @@
   "smarttabs": true,
   "trailing": true,
   "undef": true,
-  "unused": true
+  "unused": true,
+  "globals": {
+    "BLANK": true
+  },
+  "node": true
 }

@@ -2,7 +2,7 @@
 	"use strict";
 
 	$(function () {
-		// DOM ready, take it away
+		BLANK.SIDENAV.init();
 	});
 
 } ( this, jQuery ));

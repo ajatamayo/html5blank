@@ -6,6 +6,7 @@
  */
 
 require_once 'modules/is-debug.php';
+require_once 'modules/class-collapsible-walker-nav-menu.php';
 
 /*------------------------------------*\
     External Modules/Files
@@ -87,6 +88,30 @@ function html5blank_nav() {
     );
 }
 
+// HTML5 Blank side navigation
+function html5blank_sidenav() {
+    wp_nav_menu(
+    array(
+        'theme_location'  => 'sidenav-menu',
+        'menu'            => '',
+        'container'       => 'div',
+        'container_class' => 'menu-{menu slug}-container',
+        'container_id'    => '',
+        'menu_class'      => 'menu',
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul id="slide-out" class="sidenav sidenav-fixed">%3$s</ul>',
+        'depth'           => 0,
+        'walker'          => new Collapsible_Walker_Nav_Menu(),
+        )
+    );
+}
+
 // Load HTML5 Blank scripts (header.php)
 function html5blank_header_scripts() {
     if ( $GLOBALS['pagenow'] != 'wp-login.php' && ! is_admin() ) {
@@ -101,6 +126,15 @@ function html5blank_header_scripts() {
             // Modernizr
             wp_register_script( 'modernizr', get_template_directory_uri() . '/js/lib/modernizr.js', array(), '2.8.3' );
 
+            // Materializecss
+            wp_register_script( 'materializecss', get_template_directory_uri() . '/materialize/js/bin/materialize.min.js', array(), '1.0.0-beta' );
+
+            wp_register_script(
+                'html5blanksidenav',
+                get_template_directory_uri() . '/js/sidenav.js',
+                array(),
+                '1.0.0' );
+
             // Custom scripts
             wp_register_script(
                 'html5blankscripts',
@@ -108,7 +142,9 @@ function html5blank_header_scripts() {
                 array(
                     'conditionizr',
                     'modernizr',
-                    'jquery'
+                    'jquery',
+                    'materializecss',
+                    'html5blanksidenav'
                 ),
                 '1.0.0' );
 
@@ -157,7 +193,7 @@ function html5blank_styles() {
 function register_html5_menu() {
     register_nav_menus( array( // Using array to specify more menus if needed
         'header-menu'  => esc_html( 'Header Menu', 'html5blank' ), // Main Navigation
-        'extra-menu'   => esc_html( 'Extra Menu', 'html5blank' ) // Extra Navigation if needed (duplicate as many as you need!)
+        'sidenav-menu'   => esc_html( 'Sidenav Menu', 'html5blank' ) // Extra Navigation if needed (duplicate as many as you need!)
     ) );
 }
 

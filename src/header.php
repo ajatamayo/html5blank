@@ -47,5 +47,9 @@
 					</nav>
 					<!-- /nav -->
 
+					<!-- sidenav -->
+					<?php html5blank_sidenav(); ?>
+					<!-- /sidenav -->
+
 			</header>
 			<!-- /header -->

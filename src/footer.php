@@ -11,6 +11,8 @@
 			</footer>
 			<!-- /footer -->
 
+			<?php do_action( 'after_footer' ); ?>
+
 		</div>
 		<!-- /wrapper -->
 
