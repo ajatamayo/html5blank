@@ -87,18 +87,22 @@ class Collapsible_Walker_Nav_Menu extends Walker_Nav_Menu {
         global $wpdb;
         global $post;
 
-        $children = $wpdb->get_results( "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_menu_item_menu_item_parent' AND meta_value = {$parent->ID}" );
-        $children_ids = array();
-        foreach ( $children as $child ) {
-            $children_ids[] = $child->post_id;
-        }
-        $children = implode( ',', $children_ids );
-        $active_child = $wpdb->get_results( "SELECT meta_id FROM {$wpdb->postmeta} WHERE post_id IN ({$children}) AND meta_key = '_menu_item_object_id' AND meta_value = {$post->ID}");
-
-        $is_active = !empty( $active_child );
         $class = "";
-        if ($is_active) {
-            $class = ' class="active"';
+
+        if ( !empty( $post ) ) {
+            $children = $wpdb->get_results( "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_menu_item_menu_item_parent' AND meta_value = {$parent->ID}" );
+            $children_ids = array();
+            foreach ( $children as $child ) {
+                $children_ids[] = $child->post_id;
+            }
+            $children = implode( ',', $children_ids );
+            $active_child = $wpdb->get_results( "SELECT meta_id FROM {$wpdb->postmeta} WHERE post_id IN ({$children}) AND meta_key = '_menu_item_object_id' AND meta_value = {$post->ID}");
+
+            $is_active = !empty( $active_child );
+
+            if ($is_active) {
+                $class = ' class="active"';
+            }
         }
 
         if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {

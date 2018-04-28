@@ -6,7 +6,14 @@
 
 		<?php if ( have_posts() ): the_post(); ?>
 
-			<h1><?php esc_html_e( 'Author Archives for ', 'html5blank' ); echo get_the_author(); ?></h1>
+			<div class="row">
+				<div class="col s12 m8 xl7">
+					<h1><?php esc_html_e( 'Author Archives for ', 'html5blank' ); echo get_the_author(); ?></h1>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col s12 m8 xl7">
 
 		<?php if ( get_the_author_meta( 'description' ) ) : ?>
 
@@ -71,6 +78,9 @@
 		<?php endif; ?>
 
 			<?php get_template_part( 'pagination' ); ?>
+
+				</div>
+			</div>
 
 		</section>
 		<!-- /section -->

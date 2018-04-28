@@ -311,7 +311,7 @@ function html5wp_excerpt( $length_callback = '', $more_callback = '' ) {
     $output = apply_filters( 'wptexturize', $output );
     $output = apply_filters( 'convert_chars', $output );
     $output = '<p>' . $output . '</p>';
-    echo esc_html( $output );
+    echo $output;
 }
 
 // Custom View Article link to Post
