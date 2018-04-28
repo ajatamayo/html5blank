@@ -14,6 +14,7 @@
 		<meta name="description" content="<?php bloginfo( 'description' ); ?>">
 
 		<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 		<?php wp_head(); ?>
 		<script>
@@ -34,24 +35,15 @@
 			<!-- header -->
 			<header class="header clear" role="banner">
 
-					<!-- logo -->
-					<div class="logo">
-						<a href="<?php echo esc_url( home_url() ); ?>">
-							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo.svg" alt="Logo" class="logo-img">
-						</a>
-					</div>
-					<!-- /logo -->
-
-					<!-- nav -->
-					<nav class="nav" role="navigation">
-						<?php html5blank_nav(); ?>
-					</nav>
-					<!-- /nav -->
-
-					<!-- sidenav -->
-					<?php html5blank_sidenav(); ?>
-					<!-- /sidenav -->
+				<div class="hide-on-large-only logo">
+					<a class="brand-logo valign-wrapper" href="<?php echo esc_url( home_url() ); ?>">
+						<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo.svg" alt="Logo" class="logo-img">
+					</a>
+				</div>
+				<!-- sidenav -->
+				<?php html5blank_sidenav(); ?>
+				<a href="#" data-target="slide-out" class="sidenav-trigger hide-on-large-only"><i class="material-icons">menu</i></a>
+				<!-- /sidenav -->
 
 			</header>
 			<!-- /header -->

@@ -5,9 +5,30 @@
 
 
 // Header container
-.header {}
+.header {
+    .logo {
+        text-align: center;
+        margin-top: 16px;
+    }
+
+    .brand-logo {
+        height: 95px;
+    }
+
+    .logo-img {
+        margin: 0 auto;
+
+        @media (max-width: 480px) {
+            max-width: 200px;
+        }
+    }
+}
 
 // Logo
 .logo {}
 
 .logo-img {}
+
+h1 {
+    margin-top: 3.2rem;
+}

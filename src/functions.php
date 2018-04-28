@@ -107,7 +107,7 @@ function html5blank_sidenav() {
         'after'           => '',
         'link_before'     => '',
         'link_after'      => '',
-        'items_wrap'      => '<ul id="slide-out" class="sidenav sidenav-fixed">%3$s</ul>',
+        'items_wrap'      => '<ul id="slide-out" class="sidenav sidenav-fixed" role="navigation">%3$s</ul>',
         'depth'           => 0,
         'walker'          => new Collapsible_Walker_Nav_Menu(),
         )

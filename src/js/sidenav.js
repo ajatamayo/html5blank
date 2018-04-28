@@ -7,6 +7,7 @@ var BLANK = (function(BLANK) {
     };
 
     BLANK.SIDENAV.initSideNav = function() {
+        $(".sidenav").sidenav();
         $(".collapsible").collapsible();
         $("#slide-out .menu-item-has-children").on("click", BLANK.SIDENAV.toggleAccordion);
     };

@@ -4,37 +4,47 @@
 		<!-- section -->
 		<section>
 
-			<h1><?php the_title(); ?></h1>
+			<div class="row">
+				<div class="col s12 xl7">
+					<h1><?php the_title(); ?></h1>
+				</div>
+			</div>
 
-		<?php if ( have_posts()) : while ( have_posts() ) : the_post(); ?>
+			<div class="row">
+				<div class="col s12 m8 xl7">
 
-			<!-- article -->
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php if ( have_posts()) : while ( have_posts() ) : the_post(); ?>
 
-				<?php the_content(); ?>
+					<!-- article -->
+					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-				<?php comments_template( '', true ); // Remove if you don't want comments. ?>
+						<?php the_content(); ?>
 
-				<br class="clear">
+						<?php comments_template( '', true ); // Remove if you don't want comments. ?>
 
-				<?php edit_post_link(); ?>
+						<br class="clear">
 
-			</article>
-			<!-- /article -->
+						<?php edit_post_link(); ?>
 
-		<?php endwhile; ?>
+					</article>
+					<!-- /article -->
 
-		<?php else : ?>
+				<?php endwhile; ?>
 
-			<!-- article -->
-			<article>
+				<?php else : ?>
 
-				<h2><?php esc_html_e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+					<!-- article -->
+					<article>
 
-			</article>
-			<!-- /article -->
+						<h2><?php esc_html_e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
 
-		<?php endif; ?>
+					</article>
+					<!-- /article -->
+
+				<?php endif; ?>
+
+				</div>
+			</div>
 
 		</section>
 		<!-- /section -->

@@ -3,3 +3,19 @@
     padding-left: 45px;
     font-weight: 400;
 }
+
+.sidenav li > a.brand-logo {
+    margin-top: 32px;
+    margin-bottom: 12px;
+    height: auto;
+}
+
+.sidenav-trigger {
+    position: absolute;
+    top: 43px;
+    padding-left: 0.75rem;
+
+    .material-icons {
+        font-size: 40px;
+    }
+}
