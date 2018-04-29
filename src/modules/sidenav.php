@@ -40,6 +40,16 @@ function add_logo_to_sidenav( $items ) {
     <?php
     $brandlogo = ob_get_clean();
     $items = $brandlogo . $items;
+
+    if ( current_user_can( 'manage_options' ) ) {
+        ob_start(); ?>
+
+        <li class="menu-item"><a href="<?php echo admin_url(); ?>"><?php _e( 'Admin', 'html5blank' ); ?></a></li>
+
+        <?php
+        $items .= ob_get_clean();
+    }
+
     return $items;
 }
 
