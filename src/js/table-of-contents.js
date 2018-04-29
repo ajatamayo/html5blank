@@ -14,14 +14,12 @@ var BLANK = (function(BLANK) {
     BLANK.TOC.initPushpin = function() {
         $(".toc-wrapper").each(function() {
             var $this = $(this);
-            var $target = $("article");
+            var $target = $(".section.scrollspy").parent();
             $this.width($this.parent().width());
             $this.pushpin({
                 top: $target.offset().top,
                 bottom: $target.offset().top + $target.outerHeight() - $this.height(),
-                onPositionChange: function(arg1, arg2) {
-                    console.log(arg1, arg2);
-                }
+                offset: 32
             });
         });
     };

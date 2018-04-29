@@ -18,7 +18,7 @@
 					<!-- article -->
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-						<?php preg_match_all( '|<h[^>]+>(.*)</h[^>]+>|iU', get_the_content(), $headings ); ?>
+						<?php $headings = get_headings( get_the_content() ); ?>
 
 						<?php the_content(); ?>
 
@@ -48,15 +48,7 @@
 				</div>
 
 				<div class="col hide-on-small-only m4 xl3">
-					<?php if ( !empty( $headings[1] ) ) : ?>
-						<div class="toc-wrapper">
-							<ul class="section table-of-contents">
-							<?php foreach ( $headings[1] as $heading ) : ?>
-								<li><a href="#<?php echo sanitize_title( $heading ); ?>"><?php echo $heading; ?></a></li>
-							<?php endforeach; ?>
-							</ul>
-						</div>
-					<?php endif; ?>
+					<?php table_of_contents( $headings ); ?>
 				</div>
 			</div>
 

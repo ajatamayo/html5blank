@@ -40,6 +40,8 @@
 					<span class="comments"><?php if ( comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' ) ); ?></span>
 					<!-- /post details -->
 
+					<?php $headings = get_headings( get_the_content() ); ?>
+
 					<?php the_content(); // Dynamic Content. ?>
 
 					<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>' ); // Separated by commas with a line break at the end. ?>
@@ -51,6 +53,10 @@
 					<?php edit_post_link(); // Always handy to have Edit Post Links available. ?>
 
 					<?php comments_template(); ?>
+				</div>
+
+				<div class="col hide-on-small-only m4 xl3">
+					<?php table_of_contents( $headings ); ?>
 				</div>
 			</div>
 
