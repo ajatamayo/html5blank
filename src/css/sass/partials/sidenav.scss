@@ -8,6 +8,10 @@
     margin-top: 32px;
     margin-bottom: 12px;
     height: auto;
+
+    &:hover {
+        background-color: transparent;
+    }
 }
 
 .sidenav-trigger {

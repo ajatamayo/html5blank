@@ -23,11 +23,17 @@ add_filter( 'nav_menu_css_class', 'special_nav_class', 10, 4 );
  * @param string $items The HTML list content for the menu items.
  */
 function add_logo_to_sidenav( $items ) {
+    $image_src = wp_get_attachment_url( get_theme_mod( 'html5blank_logo' ) );
+
+    if ( empty( $image_src ) ) {
+        return $items;
+    }
+
     ob_start(); ?>
 
     <li class="logo">
         <a class="brand-logo" href="<?php echo esc_url( home_url() ); ?>">
-            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/img/logo.svg" alt="Logo" class="logo-img">
+            <img src="<?php echo esc_url( $image_src ); ?>" alt="<?php _e( 'Logo', 'html5blank' )?>" class="logo-img">
         </a>
     </li>
 
