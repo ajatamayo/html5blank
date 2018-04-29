@@ -89,19 +89,17 @@ class Collapsible_Walker_Nav_Menu extends Walker_Nav_Menu {
 
         $class = "";
 
-        if ( !empty( $post ) ) {
-            $children = $wpdb->get_results( "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_menu_item_menu_item_parent' AND meta_value = {$parent->ID}" );
-            $children_ids = array();
-            foreach ( $children as $child ) {
-                $children_ids[] = $child->post_id;
-            }
-            $children = implode( ',', $children_ids );
-            $active_child = $wpdb->get_results( "SELECT meta_id FROM {$wpdb->postmeta} WHERE post_id IN ({$children}) AND meta_key = '_menu_item_object_id' AND meta_value = {$post->ID}");
+        list( $is_active, $children_ids ) = $this->check_active_descendant( $post, $parent->ID );
+        if ( $is_active ) {
+            $class = ' class="active"';
+        } else {
 
-            $is_active = !empty( $active_child );
-
-            if ($is_active) {
-                $class = ' class="active"';
+            foreach ( $children_ids as $key => $child_id ) {
+                list( $is_active, $grandchildren_ids ) = $this->check_active_descendant( $post, $child_id );
+                if ( $is_active ) {
+                    $class = ' class="active"';
+                    break;
+                }
             }
         }
 
@@ -121,6 +119,42 @@ class Collapsible_Walker_Nav_Menu extends Walker_Nav_Menu {
         $output .= '<div class="collapsible-body">';
 
         $output .= "{$n}{$indent}<ul>{$n}";
+    }
+
+    /**
+     * Check if direct descendant is active
+     *
+     * @param object $post      Current active post
+     * @param int    $parent_id Current menu item
+     * @return array First value is boolean, which is true if active. Second value is an array of ids of the children.
+     */
+    function check_active_descendant( $post, $parent_id ) {
+        global $wpdb;
+        $is_active = false;
+
+        if ( empty( $post ) ) {
+            return $is_active;
+        }
+
+        $post_id = $post->ID;
+
+        $children = $wpdb->get_results( "SELECT post_id FROM {$wpdb->postmeta} WHERE meta_key = '_menu_item_menu_item_parent' AND meta_value = {$parent_id}" );
+
+        if ( empty( $children ) ) {
+            return $is_active;
+        }
+
+        $children_ids = array();
+        foreach ( $children as $child ) {
+            $children_ids[] = $child->post_id;
+        }
+        $children = implode( ',', $children_ids );
+
+        $active_child = $wpdb->get_results( "SELECT meta_id FROM {$wpdb->postmeta} WHERE post_id IN ({$children}) AND meta_key = '_menu_item_object_id' AND meta_value = {$post_id}");
+
+        $is_active = !empty( $active_child );
+
+        return array( $is_active, $children_ids );
     }
 
     /**

@@ -76,9 +76,17 @@ gulp.task( "copy", function() {
 
 /** CSS Preprocessors */
 gulp.task( "sass", function () {
+	var sassOptions = {};
+	if ( env !== "production" ) {
+		sassOptions = {
+			sourceComments: 'map',
+			sourceMap: 'sass',
+			outputStyle: 'nested'
+		};
+	}
 	return gulp.src( "src/css/sass/style.scss" )
 		.pipe( $.sourcemaps.init() )
-		.pipe( $.sass() )
+		.pipe( $.sass( sassOptions ) )
 		.pipe( $.sourcemaps.write( "." ) )
 		.on( "error", function( e ) {
 			console.error( e );

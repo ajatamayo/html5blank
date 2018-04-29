@@ -1,7 +1,24 @@
-.sidenav .collapsible-body li a,
-.sidenav.fixed .collapsible-body li a {
-    padding-left: 45px;
-    font-weight: 400;
+.sidenav {
+    li a {
+        height: auto;
+        line-height: 1.4;
+        padding: 14.5px 32px;
+    }
+
+    .collapsible-body {
+        li a {
+            padding: 17px 32px 17px 45px;
+            font-weight: 400;
+        }
+
+        li.menu-item-has-children a {
+            font-weight: 500;
+        }
+
+        .collapsible-body li a {
+            padding-left: 58px;
+        }
+    }
 }
 
 .sidenav li > a.brand-logo {
@@ -21,5 +38,13 @@
 
     .material-icons {
         font-size: 40px;
+    }
+}
+
+.sidenav .collapsible-body > ul:not(.collapsible) > li.active.current-menu-ancestor {
+    background-color: rgba(0,0,0,.05);
+
+    a {
+        color: $sidenav-font-color;
     }
 }
