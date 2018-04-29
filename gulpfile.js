@@ -17,6 +17,7 @@ var gulp = require( "gulp" ),
 		"src/materialize/js/bin/materialize.min.js",
 		/** Page scripts */
 		"src/js/sidenav.js",
+		"src/js/table-of-contents.js",
 		"src/js/scripts.js"
 	],
 	/** @type {Object of Array} CSS source files to concatenate and minify */

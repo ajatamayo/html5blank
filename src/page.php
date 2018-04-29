@@ -18,6 +18,8 @@
 					<!-- article -->
 					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
+						<?php preg_match_all( '|<h[^>]+>(.*)</h[^>]+>|iU', get_the_content(), $headings ); ?>
+
 						<?php the_content(); ?>
 
 						<?php comments_template( '', true ); // Remove if you don't want comments. ?>
@@ -43,6 +45,18 @@
 
 				<?php endif; ?>
 
+				</div>
+
+				<div class="col hide-on-small-only m4 xl3">
+					<?php if ( !empty( $headings[1] ) ) : ?>
+						<div class="toc-wrapper">
+							<ul class="section table-of-contents">
+							<?php foreach ( $headings[1] as $heading ) : ?>
+								<li><a href="#<?php echo sanitize_title( $heading ); ?>"><?php echo $heading; ?></a></li>
+							<?php endforeach; ?>
+							</ul>
+						</div>
+					<?php endif; ?>
 				</div>
 			</div>
 

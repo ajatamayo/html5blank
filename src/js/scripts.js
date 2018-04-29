@@ -3,6 +3,7 @@
 
 	$(function () {
 		BLANK.SIDENAV.init();
+		BLANK.TOC.init();
 	});
 
 } ( this, jQuery ));

@@ -10,6 +10,7 @@ require_once 'modules/class-collapsible-walker-nav-menu.php';
 
 require_once 'modules/theme-options.php';
 require_once 'modules/sidenav.php';
+require_once 'modules/table-of-contents.php';
 
 /*------------------------------------*\
     External Modules/Files
@@ -133,8 +134,14 @@ function html5blank_header_scripts() {
             wp_register_script( 'materializecss', get_template_directory_uri() . '/materialize/js/bin/materialize.min.js', array(), '1.0.0-beta' );
 
             wp_register_script(
-                'html5blanksidenav',
+                'html5blank_sidenav',
                 get_template_directory_uri() . '/js/sidenav.js',
+                array(),
+                '1.0.0' );
+
+            wp_register_script(
+                'html5blank_table_of_contents',
+                get_template_directory_uri() . '/js/table-of-contents.js',
                 array(),
                 '1.0.0' );
 
@@ -147,7 +154,8 @@ function html5blank_header_scripts() {
                     'modernizr',
                     'jquery',
                     'materializecss',
-                    'html5blanksidenav'
+                    'html5blank_sidenav',
+                    'html5blank_table_of_contents',
                 ),
                 '1.0.0' );
 
