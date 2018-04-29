@@ -13,7 +13,7 @@ var BLANK = (function(BLANK) {
     };
 
     BLANK.SIDENAV.toggleAccordion = function(e) {
-        var $collapsible = $(this).next().find(".collapsible"),
+        var $collapsible = $(this).next().find(".collapsible").first(),
             isActive = $collapsible.children("li").hasClass("active");
 
         e.preventDefault();
