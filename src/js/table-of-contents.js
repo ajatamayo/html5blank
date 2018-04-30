@@ -8,7 +8,9 @@ var BLANK = (function(BLANK) {
     };
 
     BLANK.TOC.initScrollSpy = function() {
-        $(".scrollspy").scrollSpy();
+        $(".scrollspy").scrollSpy({
+            scrollOffset: 70
+        });
     };
 
     BLANK.TOC.initPushpin = function() {
