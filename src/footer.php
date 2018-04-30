@@ -1,4 +1,8 @@
+		<div class="row">
+			<div class="col s12 xl10">
+
 			<div class="divider"></div>
+
 			<!-- footer -->
 			<footer class="footer center-align" role="contentinfo">
 
@@ -19,6 +23,9 @@
 			<!-- /footer -->
 
 			<?php do_action( 'after_footer' ); ?>
+
+			</div>
+		</div>
 
 		</div>
 		<!-- /wrapper -->
