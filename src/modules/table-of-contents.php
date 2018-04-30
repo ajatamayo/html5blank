@@ -5,6 +5,10 @@
  * @param string $content The html content of a post
  */
 function auto_split_sections( $content ) {
+    if ( !empty( get_page_template_slug() ) ) {
+        return $content;
+    }
+
     $sentinel = '<!-- sentinel -->';
     $tags = array( 'h1', 'h2', 'h3' );
 
