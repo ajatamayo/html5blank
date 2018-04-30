@@ -13,6 +13,7 @@ require_once 'modules/theme-options.php';
 require_once 'modules/sidenav.php';
 require_once 'modules/table-of-contents.php';
 require_once 'modules/background-image.php';
+require_once 'modules/categories.php';
 
 /*------------------------------------*\
     External Modules/Files

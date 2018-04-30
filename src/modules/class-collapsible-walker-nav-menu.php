@@ -92,7 +92,7 @@ class Collapsible_Walker_Nav_Menu extends Walker_Nav_Menu {
         list( $is_active, $children_ids ) = $this->check_active_descendant( $post, $parent->ID );
         if ( $is_active ) {
             $class = ' class="active"';
-        } else {
+        } elseif ( !empty( $children_ids ) ) {
 
             foreach ( $children_ids as $key => $child_id ) {
                 list( $is_active, $grandchildren_ids ) = $this->check_active_descendant( $post, $child_id );
