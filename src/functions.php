@@ -8,6 +8,7 @@
 require_once 'modules/is-debug.php';
 require_once 'modules/class-collapsible-walker-nav-menu.php';
 
+require_once 'modules/editor.php';
 require_once 'modules/theme-options.php';
 require_once 'modules/sidenav.php';
 require_once 'modules/table-of-contents.php';
