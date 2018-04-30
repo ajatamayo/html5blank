@@ -11,6 +11,7 @@ require_once 'modules/class-collapsible-walker-nav-menu.php';
 require_once 'modules/theme-options.php';
 require_once 'modules/sidenav.php';
 require_once 'modules/table-of-contents.php';
+require_once 'modules/background-image.php';
 
 /*------------------------------------*\
     External Modules/Files
