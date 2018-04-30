@@ -22,12 +22,26 @@
 }
 
 .sidenav li > a.brand-logo {
-    margin-top: 32px;
-    margin-bottom: 12px;
     height: auto;
 
     &:hover {
         background-color: transparent;
+    }
+}
+
+.header .sidenav {
+    .logo {
+        margin-top: 0;
+    }
+
+    .brand-logo {
+        height: auto;
+        padding: 0;
+        margin-top: 0;
+    }
+
+    .logo-img {
+        max-height: none;
     }
 }
 

@@ -32,11 +32,11 @@
 
 			<!-- header -->
 			<header class="header clear" role="banner">
-				<?php $image_src = wp_get_attachment_url( get_theme_mod( 'html5blank_logo' ) ); ?>
+				<?php $image_src = wp_get_attachment_url( get_theme_mod( 'html5blank_banner' ) ); ?>
 				<?php if ( !empty( $image_src ) ) : ?>
 					<div class="hide-on-large-only logo">
 						<a class="brand-logo valign-wrapper" href="<?php echo esc_url( home_url() ); ?>">
-							<img src="<?php echo esc_url( $image_src ); ?>" alt="<?php _e( 'Logo', 'html5blank' )?>" class="logo-img">
+							<img src="<?php echo esc_url( $image_src ); ?>" alt="<?php _e( 'Banner', 'html5blank' )?>" class="logo-img">
 						</a>
 					</div>
 				<?php endif; ?>

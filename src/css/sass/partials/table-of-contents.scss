@@ -1,0 +1,9 @@
+.table-of-contents a {
+    height: auto;
+    padding-top: 3px;
+    padding-bottom: 2px;
+
+    &.active {
+        color: $primary-color;
+    }
+}

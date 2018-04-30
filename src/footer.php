@@ -1,5 +1,13 @@
+			<div class="divider"></div>
 			<!-- footer -->
-			<footer class="footer" role="contentinfo">
+			<footer class="footer center-align" role="contentinfo">
+
+				<?php $image_src = wp_get_attachment_url( get_theme_mod( 'html5blank_footer' ) ); ?>
+				<?php if ( !empty( $image_src ) ) : ?>
+					<a href="<?php echo esc_url( home_url() ); ?>">
+						<img src="<?php echo esc_url( $image_src ); ?>" alt="<?php _e( 'Logo', 'html5blank' )?>">
+					</a>
+				<?php endif; ?>
 
 				<!-- copyright -->
 				<p class="copyright">
