@@ -47,7 +47,7 @@
 
 				</div>
 
-				<div class="col hide-on-small-only m4 xl3">
+				<div class="col hide-on-small-only m4 xl3 offset-xl1">
 					<?php table_of_contents( $headings ); ?>
 				</div>
 			</div>
