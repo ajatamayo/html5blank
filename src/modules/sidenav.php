@@ -59,3 +59,22 @@ function add_logo_to_sidenav( $items, $args ) {
 }
 
 add_filter( 'wp_nav_menu_items', 'add_logo_to_sidenav', 10, 2 );
+
+
+/**
+ * Add toggle button to sidenav menu item with children
+ *
+ * @param stdClass $args  An object of wp_nav_menu() arguments.
+ * @param WP_Post  $item  Menu item data object.
+ * @param int      $depth Depth of menu item. Used for padding.
+ */
+function add_icon_to_parent_menu_items( $args, $item, $depth ) {
+    if ( $args->theme_location != 'sidenav-menu' ) return $args;
+    if ( $args->walker->has_children ) {
+        $args->link_after .= '<i class="material-icons toggle-button">keyboard_arrow_right</i>';
+    } else {
+        $args->link_after = '';
+    }
+    return $args;
+}
+add_filter( 'nav_menu_item_args', 'add_icon_to_parent_menu_items', 10, 3 );

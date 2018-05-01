@@ -19,6 +19,23 @@
             padding-left: 58px;
         }
     }
+
+    .toggle-button.toggle-button.toggle-button.toggle-button {
+        margin: 0;
+        height: 18px;
+        line-height: 18px;
+        float: none;
+        vertical-align: text-bottom;
+        color: rgba(0, 0, 0, 0.87);
+    }
+
+    .toggle-button {
+        transition: transform 0.2s;
+
+        &.open {
+            transform: rotate(90deg);
+        }
+    }
 }
 
 .sidenav li > a.brand-logo {
