@@ -13,6 +13,8 @@
 					</a>
 				<?php endif; ?>
 
+				<?php html5blank_footer_menu(); ?>
+
 				<!-- copyright -->
 				<p class="copyright">
 					&copy; <?php echo esc_html( date( 'Y' ) ); ?> Copyright <?php bloginfo( 'name' ); ?>.

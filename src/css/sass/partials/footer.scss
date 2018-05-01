@@ -7,3 +7,25 @@
 .footer {
     padding-top: 40px;
 }
+
+.footer-menu {
+    li {
+        display: inline-block;
+
+        &:after {
+            content: ' \2022';
+        }
+
+        &:last-child:after {
+            content: '';
+        }
+    }
+
+    a {
+        color: $card-link-color;
+
+        &:hover {
+            color: $card-link-color-light;
+        }
+    }
+}

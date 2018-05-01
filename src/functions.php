@@ -119,6 +119,30 @@ function html5blank_sidenav() {
     );
 }
 
+// HTML5 Blank footer navigation
+function html5blank_footer_menu() {
+    wp_nav_menu(
+    array(
+        'theme_location'  => 'footer-menu',
+        'menu'            => '',
+        'container'       => 'div',
+        'container_class' => 'menu-{menu slug}-container',
+        'container_id'    => '',
+        'menu_class'      => 'menu',
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul class="footer-menu hide-on-large-only">%3$s</ul>',
+        'depth'           => 0,
+        'walker'          => '',
+        )
+    );
+}
+
 // Load HTML5 Blank scripts (header.php)
 function html5blank_header_scripts() {
     if ( $GLOBALS['pagenow'] != 'wp-login.php' && ! is_admin() ) {
@@ -206,8 +230,8 @@ function html5blank_styles() {
 // Register HTML5 Blank Navigation
 function register_html5_menu() {
     register_nav_menus( array( // Using array to specify more menus if needed
-        'header-menu'  => esc_html( 'Header Menu', 'html5blank' ), // Main Navigation
-        'sidenav-menu'   => esc_html( 'Sidenav Menu', 'html5blank' ) // Extra Navigation if needed (duplicate as many as you need!)
+        'sidenav-menu'   => esc_html( 'Sidenav Menu', 'html5blank' ), // Extra Navigation if needed (duplicate as many as you need!)
+        'footer-menu'   => esc_html( 'Footer Menu', 'html5blank' ) // Extra Navigation if needed (duplicate as many as you need!)
     ) );
 }
 

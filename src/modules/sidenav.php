@@ -9,6 +9,8 @@
  * @param int      $depth   Depth of menu item. Used for padding.
  */
 function special_nav_class( $classes, $item, $args, $depth ) {
+    if ( $args->theme_location != 'sidenav-menu' ) return $classes;
+
     if ( in_array( 'current-menu-item', $classes ) || in_array( 'current-menu-ancestor', $classes ) ) {
         $classes[] = 'active';
     }
@@ -20,9 +22,12 @@ add_filter( 'nav_menu_css_class', 'special_nav_class', 10, 4 );
 /**
  * Adds the logo to the top of the side navigation bar
  *
- * @param string $items The HTML list content for the menu items.
+ * @param string   $items The HTML list content for the menu items.
+ * @param stdClass $args  An object containing wp_nav_menu() arguments.
  */
-function add_logo_to_sidenav( $items ) {
+function add_logo_to_sidenav( $items, $args ) {
+    if ( $args->theme_location != 'sidenav-menu' ) return $items;
+
     $image_src = wp_get_attachment_url( get_theme_mod( 'html5blank_logo' ) );
 
     if ( empty( $image_src ) ) {
