@@ -9,7 +9,7 @@ var BLANK = (function(BLANK) {
 
     BLANK.TOC.initScrollSpy = function() {
         $(".scrollspy").scrollSpy({
-            scrollOffset: 70
+            scrollOffset: 0
         });
     };
 
@@ -19,7 +19,7 @@ var BLANK = (function(BLANK) {
             var $target = $(".section.scrollspy").first();
             $this.width($this.parent().width());
             $this.pushpin({
-                top: $target.offset().top,
+                top: $target.parent().offset().top,
                 bottom: $target.parent().offset().top + $target.parent().outerHeight() - $this.height(),
                 offset: 32
             });
