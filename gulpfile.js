@@ -13,11 +13,13 @@ var gulp = require( "gulp" ),
 		"src/js/lib/conditionizr-4.3.0.min.js",
 		/** jQuery */
 		"node_modules/jquery/dist/jquery.js",
+		"src/js/lib/jquery.matchHeight-min.js",
 		/** Materializecss */
 		"src/materialize/js/bin/materialize.min.js",
 		/** Page scripts */
 		"src/js/sidenav.js",
 		"src/js/table-of-contents.js",
+		"src/js/cards.js",
 		"src/js/scripts.js"
 	],
 	/** @type {Object of Array} CSS source files to concatenate and minify */

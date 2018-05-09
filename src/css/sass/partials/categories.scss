@@ -5,3 +5,9 @@
 .card-title {
     margin: 0;
 }
+
+@media #{$small-and-down} {
+    .match-height {
+        height: auto !important;
+    }
+}

@@ -23,11 +23,11 @@ function render_category_grid() {
                         <img src="<?php echo esc_url( $src ); ?>">
                     </a>
                 </div>
-                <div class="card-content">
+                <div class="card-content match-height">
                     <a href="<?php echo esc_url( get_category_link( $category ) ); ?>">
                         <h2 class="card-title"><?php echo $category->name; ?></h2>
                     </a>
-                    <p><?php echo $category->description; ?></p>
+                    <p class="flow-text"><?php echo $category->description; ?></p>
                 </div>
                 <div class="card-action">
                     <a href="<?php echo esc_url( get_category_link( $category ) ); ?>"><?php _e( 'View guides', 'html5blank' ); ?></a>

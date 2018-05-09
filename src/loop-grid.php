@@ -13,11 +13,11 @@
 					</div>
 				<?php endif; ?>
 
-				<div class="card-content">
+				<div class="card-content match-height">
 					<h2 class="card-title">
 						<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 					</h2>
-					<p><?php the_excerpt(); ?></p>
+					<p class="flow-text"><?php the_excerpt(); ?></p>
 				</div>
 
 				<div class="card-action">
