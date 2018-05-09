@@ -19,14 +19,18 @@ function render_category_grid() {
         <div class="col s12 m6 xl4">
             <div class="card">
                 <div class="card-image">
-                    <img src="<?php echo esc_url( $src ); ?>">
+                    <a href="<?php echo esc_url( get_category_link( $category ) ); ?>">
+                        <img src="<?php echo esc_url( $src ); ?>">
+                    </a>
                 </div>
                 <div class="card-content">
-                    <span class="card-title"><?php echo $category->name; ?></span>
+                    <a href="<?php echo esc_url( get_category_link( $category ) ); ?>">
+                        <h2 class="card-title"><?php echo $category->name; ?></h2>
+                    </a>
                     <p><?php echo $category->description; ?></p>
                 </div>
                 <div class="card-action">
-                    <a href="#">View guides</a>
+                    <a href="<?php echo esc_url( get_category_link( $category ) ); ?>"><?php _e( 'View guides', 'html5blank' ); ?></a>
                 </div>
             </div>
         </div>
