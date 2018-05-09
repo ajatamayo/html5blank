@@ -239,6 +239,10 @@ function html5blank_styles() {
     }
 }
 
+function add_excerpt_to_pages() {
+    add_post_type_support( 'page', 'excerpt' );
+}
+
 // Register HTML5 Blank Navigation
 function register_html5_menu() {
     register_nav_menus( array( // Using array to specify more menus if needed
@@ -452,6 +456,7 @@ add_action( 'wp_enqueue_scripts', 'html5blank_header_scripts' ); // Add Custom S
 add_action( 'wp_print_scripts', 'html5blank_conditional_scripts' ); // Add Conditional Page Scripts
 add_action( 'get_header', 'enable_threaded_comments' ); // Enable Threaded Comments
 add_action( 'wp_enqueue_scripts', 'html5blank_styles' ); // Add Theme Stylesheet
+add_action( 'init', 'add_excerpt_to_pages' ); // Add HTML5 Blank Menu
 add_action( 'init', 'register_html5_menu' ); // Add HTML5 Blank Menu
 add_action( 'init', 'create_post_type_html5' ); // Add our HTML5 Blank Custom Post Type
 add_action( 'widgets_init', 'my_remove_recent_comments_style' ); // Remove inline Recent Comment Styles from wp_head()
