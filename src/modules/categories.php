@@ -27,7 +27,7 @@ function render_category_grid() {
                     <a href="<?php echo esc_url( get_category_link( $category ) ); ?>">
                         <h2 class="card-title"><?php echo $category->name; ?></h2>
                     </a>
-                    <p class="flow-text"><?php echo $category->description; ?></p>
+                    <p><?php echo $category->description; ?></p>
                 </div>
                 <div class="card-action">
                     <a href="<?php echo esc_url( get_category_link( $category ) ); ?>"><?php _e( 'View guides', 'html5blank' ); ?></a>
