@@ -77,7 +77,7 @@ function add_icon_to_parent_menu_items( $args, $item, $depth ) {
     }
 
     if ( $args->walker->has_children ) {
-        $args->link_after .= '<i class="material-icons toggle-button' . $open . '">keyboard_arrow_right</i>';
+        $args->link_after = '<i class="material-icons toggle-button' . $open . '">keyboard_arrow_right</i>';
     } else {
         $args->link_after = '';
     }
