@@ -103,6 +103,10 @@ class Collapsible_Walker_Nav_Menu extends Walker_Nav_Menu {
             }
         }
 
+        if ( in_array( 'menu-item-has-children', $parent->classes ) && in_array( 'current-menu-item', $parent->classes ) ) {
+            $class = ' class="active"';
+        }
+
         if ( isset( $args->item_spacing ) && 'discard' === $args->item_spacing ) {
             $t = '';
             $n = '';

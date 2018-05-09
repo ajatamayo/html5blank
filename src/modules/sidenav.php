@@ -70,8 +70,14 @@ add_filter( 'wp_nav_menu_items', 'add_logo_to_sidenav', 10, 2 );
  */
 function add_icon_to_parent_menu_items( $args, $item, $depth ) {
     if ( $args->theme_location != 'sidenav-menu' ) return $args;
+
+    $open = '';
+    if ( in_array( 'menu-item-has-children', $item->classes ) && ( in_array( 'current-menu-item', $item->classes ) || in_array( 'current-menu-ancestor', $item->classes ) ) ) {
+        $open = ' open';
+    }
+
     if ( $args->walker->has_children ) {
-        $args->link_after .= '<i class="material-icons toggle-button">keyboard_arrow_right</i>';
+        $args->link_after .= '<i class="material-icons toggle-button' . $open . '">keyboard_arrow_right</i>';
     } else {
         $args->link_after = '';
     }
