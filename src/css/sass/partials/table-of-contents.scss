@@ -8,3 +8,21 @@
         color: $primary-color;
     }
 }
+
+.at-bottom .table-of-contents {
+    li:last-child a {
+        color: $primary-color;
+        font-weight: 500;
+        padding-left: 14px;
+        border-left: 2px solid $primary-color;
+    }
+}
+
+.at-bottom.at-bottom .table-of-contents {
+    a {
+        color: #757575;
+        font-weight: 300;
+        padding-left: 16px;
+        border-left: none;
+    }
+}

@@ -48,7 +48,7 @@ function wrap_section( $content ) {
     $heading = $headings[1][0];
     $slug = sanitize_title( $heading );
 
-    $content = "<div id='$slug' class='section scrollspy'>$content</div>";
+    $content = "<div id='$slug' class='scrollspy'>$content</div>";
     return $content;
 }
 
