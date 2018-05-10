@@ -4,6 +4,7 @@ var BLANK = (function(BLANK) {
 
     BLANK.SIDENAV.init = function() {
         BLANK.SIDENAV.initSideNav();
+        BLANK.SIDENAV.setScrollPosition();
     };
 
     BLANK.SIDENAV.initSideNav = function() {
@@ -26,6 +27,16 @@ var BLANK = (function(BLANK) {
             $collapsible.collapsible("open");
             $this.addClass("open");
         }
+    };
+
+    BLANK.SIDENAV.setScrollPosition = function() {
+        var $activeMenuItem = $(".sidenav .active").last();
+        if (!$activeMenuItem.length) {
+            $(".sidenav").removeClass("hidden");
+            return;
+        }
+        $("#slide-out").scrollTop($activeMenuItem.offset().top - $activeMenuItem.height());
+        $(".sidenav").removeClass("hidden");
     };
 
     return BLANK;

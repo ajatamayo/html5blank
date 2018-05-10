@@ -38,6 +38,14 @@
     }
 
     padding-bottom: 200px;
+
+    &.hidden li {
+        visibility: hidden;
+    }
+}
+
+.no-js .sidenav.hidden li {
+    visibility: visible;
 }
 
 .sidenav li > a.brand-logo {
