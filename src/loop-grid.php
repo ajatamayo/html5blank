@@ -1,6 +1,6 @@
 <?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
-	<div class="col s12 m6 xl4">
+	<li class="col s12 m6 xl4">
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 			<div class="card">
@@ -27,7 +27,7 @@
 			</div>
 
 		</article>
-	</div>
+	</li>
 
 <?php endwhile; ?>
 

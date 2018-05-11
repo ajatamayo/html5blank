@@ -12,9 +12,9 @@
 
 			<div class="row">
 				<div class="col s12 xl10">
-					<div class="row">
+					<ul class="row">
 						<?php get_template_part( 'loop', 'grid' ); ?>
-					</div>
+					</ul>
 				</div>
 			</div>
 

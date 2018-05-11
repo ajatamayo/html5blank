@@ -11,12 +11,12 @@ function render_category_grid() {
 
     ob_start(); ?>
 
-    <div class="row">
+    <ul class="row">
     <?php foreach ( $categories as $category ) :
         $params['term_id'] = $category->term_id;
         $src = category_image_src( $params, $display ); ?>
 
-        <div class="col s12 m6 xl4">
+        <li class="col s12 m6 xl4">
             <div class="card">
                 <div class="card-image">
                     <a href="<?php echo esc_url( get_category_link( $category ) ); ?>">
@@ -33,9 +33,9 @@ function render_category_grid() {
                     <a href="<?php echo esc_url( get_category_link( $category ) ); ?>"><?php _e( 'View guides', 'html5blank' ); ?></a>
                 </div>
             </div>
-        </div>
+        </li>
     <?php endforeach; ?>
-    </div>
+    </ul>
 
     <?php return ob_get_clean();
 }

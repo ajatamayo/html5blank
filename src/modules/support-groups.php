@@ -8,11 +8,11 @@ function render_support_groups_grid() {
 
     ob_start(); ?>
 
-    <div class="row">
+    <ul class="row">
     <?php foreach ( $groups as $group ) :
         $src = wp_get_attachment_image_src( get_post_thumbnail_id( $group->ID ), 'full' ); ?>
 
-        <div class="col s12">
+        <li class="col s12">
             <div class="card">
                 <div class="card-content">
                     <div class="row">
@@ -28,9 +28,9 @@ function render_support_groups_grid() {
                     </div>
                 </div>
             </div>
-        </div>
+        </li>
     <?php endforeach; ?>
-    </div>
+    </ul>
 
     <?php return ob_get_clean();
 }
