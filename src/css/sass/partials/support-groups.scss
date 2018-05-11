@@ -1,0 +1,9 @@
+.group-logo {
+    max-height: 150px;
+    width: auto;
+    margin-bottom: 12px;
+
+    @media #{$medium-and-up} {
+        max-height: none;
+    }
+}

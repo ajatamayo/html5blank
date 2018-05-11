@@ -2,8 +2,9 @@
     min-height: 48px;
 }
 
-.card-title {
+.card-title.card-title {
     margin: 0;
+    font-weight: 500;
 }
 
 @media #{$small-and-down} {

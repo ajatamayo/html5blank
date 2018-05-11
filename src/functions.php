@@ -15,6 +15,7 @@ require_once 'modules/sidenav.php';
 require_once 'modules/table-of-contents.php';
 require_once 'modules/background-image.php';
 require_once 'modules/categories.php';
+require_once 'modules/support-groups.php';
 
 /*------------------------------------*\
     External Modules/Files
@@ -458,7 +459,7 @@ add_action( 'get_header', 'enable_threaded_comments' ); // Enable Threaded Comme
 add_action( 'wp_enqueue_scripts', 'html5blank_styles' ); // Add Theme Stylesheet
 add_action( 'init', 'add_excerpt_to_pages' ); // Add HTML5 Blank Menu
 add_action( 'init', 'register_html5_menu' ); // Add HTML5 Blank Menu
-add_action( 'init', 'create_post_type_html5' ); // Add our HTML5 Blank Custom Post Type
+add_action( 'init', 'create_post_type_support_group' ); // Add our HTML5 Blank Custom Post Type
 add_action( 'widgets_init', 'my_remove_recent_comments_style' ); // Remove inline Recent Comment Styles from wp_head()
 add_action( 'init', 'html5wp_pagination' ); // Add our HTML5 Pagination
 
@@ -505,39 +506,40 @@ add_shortcode( 'html5_shortcode_demo_2', 'html5_shortcode_demo_2' ); // Place [h
 \*------------------------------------*/
 
 // Create 1 Custom Post type for a Demo, called HTML5-Blank
-function create_post_type_html5() {
-    register_taxonomy_for_object_type( 'category', 'html5-blank' ); // Register Taxonomies for Category
-    register_taxonomy_for_object_type( 'post_tag', 'html5-blank' );
-    register_post_type( 'html5-blank', // Register Custom Post Type
+function create_post_type_support_group() {
+    // register_taxonomy_for_object_type( 'category', 'support-group' ); // Register Taxonomies for Category
+    // register_taxonomy_for_object_type( 'post_tag', 'support-group' );
+    register_post_type( 'support-group', // Register Custom Post Type
         array(
         'labels'       => array(
-            'name'               => esc_html( 'HTML5 Blank Custom Post', 'html5blank' ), // Rename these to suit
-            'singular_name'      => esc_html( 'HTML5 Blank Custom Post', 'html5blank' ),
+            'name'               => esc_html( 'Support Groups', 'html5blank' ), // Rename these to suit
+            'singular_name'      => esc_html( 'Support Group', 'html5blank' ),
             'add_new'            => esc_html( 'Add New', 'html5blank' ),
-            'add_new_item'       => esc_html( 'Add New HTML5 Blank Custom Post', 'html5blank' ),
+            'add_new_item'       => esc_html( 'Add New Support Group', 'html5blank' ),
             'edit'               => esc_html( 'Edit', 'html5blank' ),
-            'edit_item'          => esc_html( 'Edit HTML5 Blank Custom Post', 'html5blank' ),
-            'new_item'           => esc_html( 'New HTML5 Blank Custom Post', 'html5blank' ),
-            'view'               => esc_html( 'View HTML5 Blank Custom Post', 'html5blank' ),
-            'view_item'          => esc_html( 'View HTML5 Blank Custom Post', 'html5blank' ),
-            'search_items'       => esc_html( 'Search HTML5 Blank Custom Post', 'html5blank' ),
-            'not_found'          => esc_html( 'No HTML5 Blank Custom Posts found', 'html5blank' ),
-            'not_found_in_trash' => esc_html( 'No HTML5 Blank Custom Posts found in Trash', 'html5blank' ),
+            'edit_item'          => esc_html( 'Edit Support Group', 'html5blank' ),
+            'new_item'           => esc_html( 'New Support Group', 'html5blank' ),
+            'view'               => esc_html( 'View Support Group', 'html5blank' ),
+            'view_item'          => esc_html( 'View Support Group', 'html5blank' ),
+            'search_items'       => esc_html( 'Search Support Group', 'html5blank' ),
+            'not_found'          => esc_html( 'No Support Groups found', 'html5blank' ),
+            'not_found_in_trash' => esc_html( 'No Support Groups found in Trash', 'html5blank' ),
         ),
-        'public'       => true,
-        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-        'has_archive'  => true,
-        'supports'     => array(
+        'public'             => true,
+        'publicly_queryable' => false,
+        'hierarchical'       => true, // Allows your posts to behave like Hierarchy Pages
+        'has_archive'        => true,
+        'supports'           => array(
             'title',
             'editor',
-            'excerpt',
+            // 'excerpt',
             'thumbnail'
         ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export'   => true, // Allows export in Tools > Export
-        'taxonomies'   => array(
-            'post_tag',
-            'category'
-        ) // Add Category and Post Tags support
+        'can_export'         => true, // Allows export in Tools > Export
+        // 'taxonomies'         => array(
+        //     'post_tag',
+        //     'category'
+        // ) // Add Category and Post Tags support
     ) );
 }
 
