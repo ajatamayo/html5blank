@@ -41,7 +41,8 @@ a {
   color: $card-link-color;
   text-decoration: none;
 
-  &:focus,
+  &:focus {}
+
   &:hover {
     color: $card-link-color-light;
   }
