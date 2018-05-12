@@ -12,8 +12,8 @@ function render_support_groups_grid() {
     <?php foreach ( $groups as $group ) :
         $src = wp_get_attachment_image_src( get_post_thumbnail_id( $group->ID ), 'full' ); ?>
 
-        <li class="col s12">
-            <div class="card">
+        <li class="col s12 xl6">
+            <div class="card match-height">
                 <div class="card-content">
                     <div class="row">
                         <?php if ( !empty( $src ) ) : ?>

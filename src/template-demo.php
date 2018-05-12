@@ -14,7 +14,7 @@
 			<?php endif; ?>
 
 			<div class="row">
-				<div class="col s12 xl10">
+				<div class="col s12">
 
 				<?php if ( have_posts()) : while ( have_posts() ) : the_post(); ?>
 

@@ -1,5 +1,5 @@
 		<div class="row">
-			<div class="col s12 xl10">
+			<div class="col s12">
 
 			<div class="divider"></div>
 

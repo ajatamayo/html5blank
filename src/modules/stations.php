@@ -123,3 +123,80 @@ function convert_mall_id_to_term_in_query( $query ) {
         $q_vars[$taxonomy] = $term->slug;
     }
 }
+
+/****************************************
+ * Add shortcode to show list of breastfeeding stations
+ ****************************************/
+
+function render_breastfeeding_stations() {
+    $categories = get_terms( 'mall', array(
+        'orderby'    => 'term_order',
+        'hide_empty' => 0,
+    ) );
+
+    $display = false;
+    $params = array( 'term_id' => null, 'size' => 'full' );
+
+    ob_start(); ?>
+
+    <div class="row">
+        <div class="col s12 m8 xl7">
+            <ul>
+            <?php foreach ( $categories as $category ) :
+                $posts = get_posts(
+                    array(
+                        'posts_per_page' => -1,
+                        'post_type'      => 'station',
+                        'orderby'        => 'title',
+                        'order'          => 'ASC',
+                        'tax_query' => array(
+                            array(
+                                'taxonomy' => 'mall',
+                                'field' => 'term_id',
+                                'terms' => $category->term_id,
+                            )
+                        ),
+                    )
+                );
+
+                $params['term_id'] = $category->term_id;
+                $src = category_image_src( $params, $display ); ?>
+
+                <li class="scrollspy" id="<?php echo sanitize_title( $category->name ); ?>">
+                    <div class="row">
+                        <div class="col s12">
+                            <img class="mall-logo" src="<?php echo esc_url( $src ); ?>">
+                            <h2><?php echo $category->name; ?></h2>
+                        </div>
+                    </div>
+
+                    <ul class="station-list row">
+                    <?php foreach ( $posts as $post ) : ?>
+                        <li>
+                            <article class="col s12 m6 xl4 station match-height">
+                                <h3 class="station-title"><?php echo $post->post_title; ?></h3>
+                                <address><?php echo apply_filters( 'the_content', $post->post_content ); ?></address>
+                            </article>
+                        </li>
+                    <?php endforeach; ?>
+                    </ul>
+                </li>
+            <?php endforeach; ?>
+            </ul>
+        </div>
+
+        <div class="col hide-on-small-only m4 xl3 offset-xl1">
+            <div class="toc-wrapper">
+                <ul class="section table-of-contents">
+                <?php foreach ( $categories as $category ) : ?>
+                    <li><a href="#<?php echo sanitize_title( $category->name ); ?>"><?php echo $category->name; ?></a></li>
+                <?php endforeach; ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <?php return ob_get_clean();
+}
+
+add_shortcode( 'breastfeeding_stations', 'render_breastfeeding_stations' );
