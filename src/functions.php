@@ -16,6 +16,7 @@ require_once 'modules/table-of-contents.php';
 require_once 'modules/background-image.php';
 require_once 'modules/categories.php';
 require_once 'modules/support-groups.php';
+require_once 'modules/stations.php';
 
 /*------------------------------------*\
     External Modules/Files
@@ -459,7 +460,7 @@ add_action( 'get_header', 'enable_threaded_comments' ); // Enable Threaded Comme
 add_action( 'wp_enqueue_scripts', 'html5blank_styles' ); // Add Theme Stylesheet
 add_action( 'init', 'add_excerpt_to_pages' ); // Add HTML5 Blank Menu
 add_action( 'init', 'register_html5_menu' ); // Add HTML5 Blank Menu
-add_action( 'init', 'create_post_type_support_group' ); // Add our HTML5 Blank Custom Post Type
+add_action( 'init', 'create_post_type_support_group' ); // Add our Custom Post Type
 add_action( 'widgets_init', 'my_remove_recent_comments_style' ); // Remove inline Recent Comment Styles from wp_head()
 add_action( 'init', 'html5wp_pagination' ); // Add our HTML5 Pagination
 
@@ -505,7 +506,7 @@ add_shortcode( 'html5_shortcode_demo_2', 'html5_shortcode_demo_2' ); // Place [h
     Custom Post Types
 \*------------------------------------*/
 
-// Create 1 Custom Post type for a Demo, called HTML5-Blank
+// Create 1 Custom Post type
 function create_post_type_support_group() {
     // register_taxonomy_for_object_type( 'category', 'support-group' ); // Register Taxonomies for Category
     // register_taxonomy_for_object_type( 'post_tag', 'support-group' );
@@ -521,7 +522,7 @@ function create_post_type_support_group() {
             'new_item'           => esc_html( 'New Support Group', 'html5blank' ),
             'view'               => esc_html( 'View Support Group', 'html5blank' ),
             'view_item'          => esc_html( 'View Support Group', 'html5blank' ),
-            'search_items'       => esc_html( 'Search Support Group', 'html5blank' ),
+            'search_items'       => esc_html( 'Search Support Groups', 'html5blank' ),
             'not_found'          => esc_html( 'No Support Groups found', 'html5blank' ),
             'not_found_in_trash' => esc_html( 'No Support Groups found in Trash', 'html5blank' ),
         ),

@@ -8,7 +8,7 @@ var BLANK = (function(BLANK) {
 
     BLANK.CARDS.initMatchHeight = function() {
         $(".match-height").matchHeight({
-            byRow: false,
+            byRow: true,
             property: "height",
             target: null,
             remove: false
