@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?> class="no-js">
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
-		<title><?php wp_title( '' ); ?><?php if ( wp_title( '', false ) ) { echo ' : '; } ?><?php bloginfo( 'name' ); ?></title>
+		<title><?php wp_title( '' ); ?><?php if ( wp_title( '', false ) ) { echo ' | '; } ?><?php bloginfo( 'name' ); ?></title>
 
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' ); ?>" href="<?php bloginfo( 'rss2_url' ); ?>" />

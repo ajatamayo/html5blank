@@ -17,7 +17,13 @@
 
 				<!-- copyright -->
 				<p class="copyright">
-					&copy; <?php echo esc_html( date( 'Y' ) ); ?> Copyright <?php bloginfo( 'name' ); ?>.
+					<?php
+						$value = get_option( 'company_name', '' );
+						if ( empty( $value ) ) {
+							$value = get_bloginfo( 'name' );
+						}
+					?>
+					&copy; <?php echo esc_html( date( 'Y' ) ) . ' ' . $value; ?>
 				</p>
 				<!-- /copyright -->
 
