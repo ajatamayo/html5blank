@@ -38,11 +38,13 @@ img {
 }
 
 a {
-  color: $text-color;
+  color: $card-link-color;
   text-decoration: none;
 
   &:focus,
-  &:hover {}
+  &:hover {
+    color: $card-link-color-light;
+  }
 
   &:active {}
 }

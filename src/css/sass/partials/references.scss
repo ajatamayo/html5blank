@@ -7,24 +7,24 @@ ol.references {
         &:hover {
             color: #a8a8a8;
         }
-
-        &[target=_blank]:after {
-            content: 'open_in_new';
-            font-family: 'Material Icons';
-            font-weight: normal;
-            font-style: normal;
-            line-height: 1;
-            letter-spacing: normal;
-            text-transform: none;
-            display: inline-block;
-            white-space: nowrap;
-            word-wrap: normal;
-            direction: ltr;
-            position: relative;
-            top: 2px;
-            padding-left: 2px;
-            -webkit-font-feature-settings: 'liga';
-            -webkit-font-smoothing: antialiased;
-        }
     }
+}
+
+a[target=_blank]:after {
+    content: 'open_in_new';
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    position: relative;
+    top: 2px;
+    padding-left: 2px;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
 }
