@@ -28,4 +28,16 @@ address {
     li:nth-child(3n) .station {
         padding-left: 3rem;
     }
+
+    @media #{$medium-and-down} {
+        li:nth-child(2n + 1) .station {
+            padding-right: 0.75rem;
+            padding-left: 0.75rem;
+        }
+
+        li:nth-child(2n) .station {
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+    }
 }
